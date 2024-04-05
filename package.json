@@ -1,0 +1,36 @@
+{
+  "name": "react",
+  "version": "1.0.0",
+  "description": "Learning React",
+  "scripts": {
+    "test": "jest",
+    "start": "parcel index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SanthoshVenu/React.git"
+  },
+  "keywords": [
+    "Santhosh",
+    "Ganga"
+  ],
+  "author": "Santhosh Venugopal",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SanthoshVenu/React/issues"
+  },
+  "homepage": "https://github.com/SanthoshVenu/React#readme",
+  "devDependencies": {
+    "parcel": "^2.12.0",
+    "process": "^0.11.10"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "browserlist": [
+      "last 2 versions"
+  ]
+
+  
+}

@@ -1,6 +1,43 @@
-#heading1 {
-    color: red
+.header {
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid black;
 }
-#heading2 {
-    color: green
+
+.logo {
+    width: 10rem;
+}
+
+.nav-item>ul {
+    position: relative;
+    top: 1rem;
+    display: flex;
+
+    li {
+        padding: 2rem;
+        list-style-type: none;
+        font-size: 1.3rem;
+    }
+
+}
+
+.card-container {
+    display: ruby;
+
+    .card {
+        border: 1px solid black;
+        padding: 0.5rem;
+        width: 12rem;
+
+        img {
+            width: inherit;
+            border-bottom: 1px solid black;
+        }
+    }
+}
+
+.header-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
