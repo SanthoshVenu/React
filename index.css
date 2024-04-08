@@ -41,3 +41,7 @@
     justify-content: center;
     align-items: center;
 }
+
+.searchBar {
+    padding: 0.5rem;
+}
