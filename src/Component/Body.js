@@ -1,21 +1,34 @@
-import RestaurantCard from "../Component/RestaurantCard";
-import SearchBar from "../Component/SearchBar";
+import RestaurantCard from "./Restaurant/RestaurantCard";
+import SearchBar from "./Restaurant/SearchBar";
 import { MOCK_RESTAURANT_DATA } from "../Utils/mockData";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import ShimmerUI from "./Restaurant/SimmerUI";
 
 const Body = () => {
-  const [listOfRestaurants, setListOfRestaurants] = useState(
-    MOCK_RESTAURANT_DATA[0]
-  );
+  const [listOfRestaurants, setListOfRestaurants] = useState([]);
+  const [copyListOfRestaurants, setCopyListOfRestaurants] = useState([]);
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  const fetchData = async () => {
+    const data = await fetch(
+      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=11.01420&lng=76.99410&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+    );
+    const json = await data.json();
+    setListOfRestaurants(json?.data?.cards[0]?.card.card);
+    setCopyListOfRestaurants(json?.data?.cards[0]?.card.card);
+  };
 
   function HandelDataFromChild(name) {
     if (name != "") {
       const filterByInputText = {
-        ...listOfRestaurants,
+        ...copyListOfRestaurants,
         imageGridCards: {
-          ...listOfRestaurants.imageGridCards,
-          info: listOfRestaurants.imageGridCards.info.filter((x) =>
-            x.action.text.includes(name)
+          ...copyListOfRestaurants.imageGridCards,
+          info: copyListOfRestaurants.imageGridCards.info.filter((x) =>
+            x.action.text.toLowerCase().includes(name.toLowerCase())
           ),
         },
       };
@@ -54,6 +67,7 @@ const Body = () => {
           Return To Original List
         </button>
       </div>
+
       <RestaurantCard cardData={listOfRestaurants} />
     </div>
   );

@@ -45,3 +45,32 @@
 .searchBar {
     padding: 0.5rem;
 }
+
+.square {
+    background: #fff;
+    border: 1px solid #999;
+    float: left;
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 34px;
+    height: 34px;
+    margin-right: -1px;
+    margin-top: -1px;
+    padding: 0;
+    text-align: center;
+    width: 34px;
+}
+
+.board-row:after {
+    clear: both;
+    content: '';
+    display: table;
+}
+
+.login-btn {
+
+    background-color: green;
+    border: 1px solid red;
+    cursor: pointer;
+
+}

@@ -1,9 +1,8 @@
-import { FOOD_IMG_URL } from "../Utils/contants";
+import { FOOD_IMG_URL } from "../../Utils/contants";
 
 const ImageContainer = ({ imgData }) => {
   return (
     <div className="card">
-      {console.log(imgData)}
       <img src={FOOD_IMG_URL + imgData.imageId}></img>
       <div>
         <ul>

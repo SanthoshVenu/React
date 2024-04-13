@@ -5,11 +5,11 @@ const RestaurantCard = ({ cardData, OnEverChange }) => {
   return (
     <div>
       <div className="header-title">
-        <h1>{header.title}</h1>
+        <h1>{header?.title}</h1>
       </div>
       <div className="card-container">
-        {imageGridCards.info.map((imageData) => (
-          <ImageContainer key={imageData.id} imgData={imageData} />
+        {imageGridCards?.info?.map((imageData) => (
+          <ImageContainer key={imageData?.id} imgData={imageData} />
         ))}
       </div>
     </div>
