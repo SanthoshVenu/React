@@ -1,9 +1,12 @@
-import { LOGO_URL } from "../../Utils/contants";
+import { LOGO_URL } from "../../Utils/constants";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import useCheckUserStatus from "../../Utils/useCheckUserStatus";
 
 const Header = () => {
   const [loginBtn, setLoginBtn] = useState("Login");
+
+  const userStatus = useCheckUserStatus();
 
   useEffect(() => {
     console.log("useEffect() Invoked");
@@ -15,6 +18,7 @@ const Header = () => {
       </div>
       <div className="nav-item">
         <ul>
+          <li>{userStatus ? "Online 😊 " : "Offline 😑"}</li>
           <li>
             <Link to="/">Home</Link>
           </li>

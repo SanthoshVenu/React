@@ -1,4 +1,4 @@
-import { FOOD_IMG_URL } from "../../Utils/contants";
+import { FOOD_IMG_URL } from "../../Utils/constants";
 
 const ImageContainer = ({ imgData }) => {
   return (
@@ -14,6 +14,19 @@ const ImageContainer = ({ imgData }) => {
       </div>
     </div>
   );
+};
+
+//Higher Order Function.
+// It takes Component as input.Enhances it, returns a modified component.
+export const withPromotedLabel = (ImageContainer) => {
+  return (props) => {
+    return (
+      <div>
+        <label>Promoted</label>
+        <ImageContainer {...props} />
+      </div>
+    );
+  };
 };
 
 export default ImageContainer;
