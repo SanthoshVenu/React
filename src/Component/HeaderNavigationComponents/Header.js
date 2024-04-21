@@ -1,16 +1,17 @@
 import { LOGO_URL } from "../../Utils/constants";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import useCheckUserStatus from "../../Utils/useCheckUserStatus";
+import UserContext from "../../Utils/UserContext";
 
 const Header = () => {
   const [loginBtn, setLoginBtn] = useState("Login");
 
   const userStatus = useCheckUserStatus();
 
-  useEffect(() => {
-    console.log("useEffect() Invoked");
-  }, [loginBtn]);
+  const { loggedInUser } = useContext(UserContext);
+
+  useEffect(() => {}, [loginBtn]);
   return (
     <div className="header">
       <div className="logo-container">
@@ -29,6 +30,7 @@ const Header = () => {
             <Link to="/contact">Contact Us</Link>
           </li>
           <li>Cart</li>
+          <li>{loggedInUser}</li>
           <li
             onClick={() =>
               loginBtn === "Login"

@@ -1,4 +1,4 @@
-import React, { Suspense, lazy } from "react";
+import React, { Suspense, lazy, useState, useEffect } from "react";
 import ReactDOM from "react-dom";
 import Header from "./src/Component/HeaderNavigationComponents/Header";
 import Body from "./src/Component/Body";
@@ -7,17 +7,25 @@ import ContactUs from "./src/Component/HeaderNavigationComponents/ContactUs";
 import Error from "./src/Component/Shared/Error";
 import RestaurantMenu from "./src/Component/Restaurant/RestaurantMenu";
 import Product from "./src/Component/Product";
+import UserContext from "./src/Utils/UserContext";
 
 const About = lazy(() =>
   import("./src/Component/HeaderNavigationComponents/About")
 );
 
 const App = () => {
+  const [userName, setUserName] = useState();
+  useEffect(() => {
+    setUserName("Balamani Venugopal");
+  }, []);
+
   return (
-    <div className="app">
-      <Header />
-      <Outlet />
-    </div>
+    <UserContext.Provider value={{ loggedInUser: userName, setUserName }}>
+      <div className="app">
+        <Header />
+        <Outlet />
+      </div>
+    </UserContext.Provider>
   );
 };
 

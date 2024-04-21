@@ -1,12 +1,14 @@
 import RestaurantCard from "./Restaurant/RestaurantCard";
 import SearchBar from "./Restaurant/SearchBar";
 import { MOCK_RESTAURANT_DATA } from "../Utils/mockData";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
+import UserContext from "../Utils/UserContext";
 import ShimmerUI from "./Restaurant/SimmerUI";
 
 const Body = () => {
   const [listOfRestaurants, setListOfRestaurants] = useState([]);
   const [copyListOfRestaurants, setCopyListOfRestaurants] = useState([]);
+  const { loggedInUser, setUserName } = useContext(UserContext);
 
   useEffect(() => {
     fetchData();
@@ -66,6 +68,14 @@ const Body = () => {
         >
           Return To Original List
         </button>
+      </div>
+
+      <div>
+        <input
+          className="border-10 "
+          value={loggedInUser}
+          onChange={(e) => setUserName(e.target.value)}
+        />
       </div>
 
       <RestaurantCard cardData={listOfRestaurants} />
