@@ -7,7 +7,7 @@ const SubCategories = ({ subCategory }) => {
     <div>
       <span>{title}</span>
       <div>
-        {itemCards.map((item) => (
+        {itemCards?.map((item) => (
           <AccordianMenu itemData={item?.card?.info} />
         ))}
       </div>

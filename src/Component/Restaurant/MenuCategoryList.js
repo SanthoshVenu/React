@@ -7,8 +7,8 @@ const MenuCategoryList = ({ cardData }) => {
     <div>
       <span>{title}</span>
       <div>
-        {categories.map((category) => (
-          <SubCategories key={category.title} subCategory={category} />
+        {categories?.map((category) => (
+          <SubCategories key={category?.title} subCategory={category} />
         ))}
       </div>
     </div>
