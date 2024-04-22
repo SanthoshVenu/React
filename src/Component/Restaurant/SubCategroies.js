@@ -1,7 +1,6 @@
 import AccordianMenu from "./AccoridianMenu";
 
 const SubCategories = ({ subCategory }) => {
-  console.log("SubCategories", subCategory);
   const { title, itemCards } = subCategory;
   return (
     <div>

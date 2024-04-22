@@ -10,7 +10,6 @@ const AccordianMenu = ({ itemData }) => {
     "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_300,h_300,c_fit/";
 
   const { name, description, imageId, price, defaultPrice } = itemData;
-  console.log("AccordianMenu", itemData);
 
   return (
     <div className="flex w-6/12 justify-center items-center">
@@ -18,7 +17,7 @@ const AccordianMenu = ({ itemData }) => {
         <li>{name}</li> <li>{price != undefined ? price : defaultPrice}</li>
         <li>{description}</li>
       </div>
-
+      ~
       <div>
         <button
           onClick={() => handleDispatch(itemData)}

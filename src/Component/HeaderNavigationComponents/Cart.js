@@ -1,16 +1,23 @@
 // import SubCategories from "../Restaurant/SubCategroies";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { addItems, clearItem } from "../../Utils/ReduxStore/Slices/cartSlice";
 import AccordianMenu from "../Restaurant/AccoridianMenu";
 
 const Cart = () => {
   const cartItems = useSelector((store) => store.cart.items);
-  console.log(cartItems);
+  var dispatch = useDispatch();
+  const clearCart = () => {
+    console.log("Clear Cart");
+    dispatch(clearItem());
+  };
   return (
     <div>
       <h1>Cart Items</h1>
-      <button>Clear Cart</button>
+      <button className="border-2" onClick={clearCart}>
+        Clear Cart
+      </button>
       {cartItems?.map((item) => (
-        <AccordianMenu itemData={item} />
+        <AccordianMenu key={item.name} itemData={item} />
       ))}
     </div>
   );

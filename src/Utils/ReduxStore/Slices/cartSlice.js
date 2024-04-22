@@ -14,11 +14,11 @@ const cartSlice = createSlice({
       state.items.pop();
     },
     clearItem: (state) => {
-      state.items.length == 0;
+      state.items.length = 0;
     },
   },
 });
 
-export const { addItems, removeItems, clearItems } = cartSlice.actions;
+export const { addItems, removeItems, clearItem } = cartSlice.actions;
 
 export default cartSlice.reducer;
